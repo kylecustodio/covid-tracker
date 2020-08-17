@@ -43,13 +43,13 @@ function App() {
       <Navbar />
       <Container>
         <Typography variant='h2'>
-          <Box textAlign='center' m={1}>
+          <Box textAlign='center' my={4}>
             National Data
           </Box>
         </Typography>
         <NationalCards data={nationalStats} />
         <Typography variant='h2'>
-          <Box textAlign='center' m={1}>
+          <Box textAlign='center' mt={4} mb={2}>
             States and Territories
           </Box>
         </Typography>
