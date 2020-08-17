@@ -57,9 +57,9 @@ function App() {
           <TextField label='Search' variant='outlined' fullWidth={true} value={search} onChange={updateSearch}/>
         </Box>
         <Grid container justify='center' spacing={3}>
-          {stateInfo.filter(state => state.name.toLowerCase().includes(search.toLowerCase())).map((filteredState, index) => (
+          {stateInfo.filter(state => state.name.toLowerCase().includes(search.toLowerCase())).map(filteredState => (
             <Grid item xs={6} md={3}>
-              <StateCard title={filteredState.name} cases={stateStats[index].positive} />
+              <StateCard title={filteredState.name} data={stateStats[stateInfo.indexOf(filteredState)]} />
             </Grid>
           ))}
         </Grid>
