@@ -1,7 +1,22 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
+import { Card, CardContent, Typography, Grid, CircularProgress } from '@material-ui/core';
 
 const NationalCards = ({ data }) => {
+    if (typeof (data) == 'undefined') {
+        return (
+            <Grid container justify='center' spacing={3}>
+                {[0, 1, 2].map(card => (
+                    <Grid item xs={6} sm={3}>
+                        <Card>
+                            <CardContent>
+                                <CircularProgress />
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                ))}
+            </Grid>
+        );
+    }
     const cards = [
         {
             title: 'Total Cases',
@@ -21,7 +36,7 @@ const NationalCards = ({ data }) => {
         },
     ];
 
-    return(
+    return (
         <Grid container justify='center' spacing={3}>
             {cards.map(card => (
                 <Grid item xs={6} sm={3}>

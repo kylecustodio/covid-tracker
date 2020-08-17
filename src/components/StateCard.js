@@ -1,9 +1,15 @@
 import React from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
+import { Card, CardContent, Typography, CircularProgress } from '@material-ui/core';
 
 const StateCard = ({ title, data }) => {
-    if (!data) {
-        return <h1>Loading</h1>;
+    if (typeof (data) == 'undefined') {
+        return (
+            <Card>
+                <CardContent>
+                    <CircularProgress />
+                </CardContent>
+            </Card>
+        );
     }
     return (
         <Card>
