@@ -1,7 +1,10 @@
 import React from 'react';
 import { Card, CardContent, Typography } from '@material-ui/core';
 
-const StateCard = ({ title, cases }) => {
+const StateCard = ({ title, data }) => {
+    if (!data) {
+        return <h1>Loading</h1>;
+    }
     return (
         <Card>
             <CardContent>
@@ -9,7 +12,16 @@ const StateCard = ({ title, cases }) => {
                     {title}
                 </Typography>
                 <Typography color='textSecondary'>
-                    Total Cases: {Number(cases).toLocaleString()}
+                    Total Cases: {Number(data.positive).toLocaleString()}
+                </Typography>
+                <Typography color='textSecondary'>
+                    New Cases: {Number(data.positiveIncrease).toLocaleString()}
+                </Typography>
+                <Typography color='textSecondary'>
+                    Total Deaths: {Number(data.death).toLocaleString()}
+                </Typography>
+                <Typography color='textSecondary'>
+                    New Deaths: {Number(data.deathIncrease).toLocaleString()}
                 </Typography>
             </CardContent>
         </Card>
